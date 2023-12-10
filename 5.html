@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Prime no</title>
+  </head>
+  <body>
+    <form>
+      <label for="number">Enter number</label>
+      <input
+        id="number"
+        title="Enter number to check for prime no "
+        type="number"
+      />
+      <button type="submit">Check</button>
+    </form>
+    <span></span>
+    <script>
+      var form = document.querySelector("form");
+      var result = document.querySelector("span");
+      console.log(form);
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        if (!e.target?.[0].value) {
+          return;
+        }
+        checkPrimeNumber(e.target?.[0].value);
+      };
+      let checkPrimeNumber = (num) => {
+        if (isNaN(num)) {
+          return;
+        }
+        let isPrime = "is prime";
+        for (let i = 2; i < num; i++) {
+          if (num % i == 0) {
+            console.log(num, i);
+            isPrime = "is not prime";
+            break;
+          }
+        }
+        result.innerHTML = num + " " + isPrime + " number";
+      };
+    </script>
+  </body>
+</html>

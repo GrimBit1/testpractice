@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary</title>
+  </head>
+  <body>
+    <form>
+      <label for="number">Enter number</label>
+      <input
+        id="number"
+        title="Enter number to check for prime no "
+        type="number"
+      />
+      <button type="submit">Check</button>
+    </form>
+    <span></span>
+    <script>
+      var form = document.querySelector("form");
+      var result = document.querySelector("span");
+      console.log(form);
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        if (!e.target?.[0].value) {
+          return;
+        }
+        result.innerHTML = binary(e.target?.[0].value);
+      };
+
+      let binary = (number) => {
+        let num = parseInt(number);
+        let a = number.length;
+        let bin = [];
+        let i = 0;
+        while (num > 0) {
+          if (num % 2 == 1) {
+            bin[i] = 1;
+          } else {
+            bin[i] = 0;
+          }
+          num = parseInt(num / 2);
+          i += 1;
+        }
+
+        let b = bin.join("");
+        return b;
+      };
+    </script>
+  </body>
+</html>

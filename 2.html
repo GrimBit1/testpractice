@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smile in Canvas</title>
+    <style>
+      canvas {
+        border: 2px solid red;
+        width: 680px;
+        height: 550px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <script>
+      let canvas = document.querySelector("canvas");
+      let face = canvas.getContext("2d");
+      face.beginPath();
+      face.arc(90, 90, 40, 0, Math.PI * 2);
+      face.fillStyle = "yellow";
+      face.fill();
+      face.stroke();
+
+      let smile = canvas.getContext("2d");
+      smile.beginPath();
+      smile.arc(90, 100, 20, 0, Math.PI);
+      smile.stroke();
+
+      let eyes = canvas.getContext("2d");
+      eyes.beginPath();
+      eyes.arc(75, 80, 10, 0, Math.PI * 2);
+      eyes.closePath();
+      eyes.moveTo(115, 80);
+      eyes.arc(105, 80, 10, 0, Math.PI * 2);
+      eyes.fillStyle = "aqua";
+      eyes.fill();
+      eyes.stroke();
+    </script>
+  </body>
+</html>
