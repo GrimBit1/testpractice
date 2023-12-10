@@ -30,19 +30,18 @@
 
       let binary = (number) => {
         let num = parseInt(number);
-        let a = number.length;
         let bin = [];
-        let i = 0;
-        while (num > 0) {
+        
+        for (let i = 0; num > 0; i++) {
           if (num % 2 == 1) {
             bin[i] = 1;
           } else {
             bin[i] = 0;
           }
           num = parseInt(num / 2);
-          i += 1;
         }
 
+        bin.reverse();
         let b = bin.join("");
         return b;
       };
